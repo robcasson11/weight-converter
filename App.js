@@ -2,6 +2,8 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TextInput, Label } from "react-native";
 import { useState } from "react";
 import Input from "./components/input";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 export default function App() {
   const [gold, setGold] = useState("");
@@ -51,12 +53,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Header />
       <View style={styles.mainContent}>
         <Input title="Plat" value={plat} convert={convertPlat} />
         <Input title="Gold" value={gold} convert={convertGold} />
         <Input title="Silver" value={sil} convert={convertSil} />
         <Input title="Wax" value={wax} convert={convertWax} />
       </View>
+      <Footer />
     </View>
   );
 }
@@ -64,17 +68,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginHorizontal: "38%",
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
   mainContent: {
+    flex: 3,
     display: "grid",
     backgroundColor: "#eee",
     justifyContent: "center",
-    marginTop: 200,
-    marginBottom: 200,
     padding: 20,
     borderRadius: 20,
   },
+  // @ media only screen and (max-width: 600px) {
+  //   con
+  // }
 });
